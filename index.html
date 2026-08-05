@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPSS Group — Research Lab</title>
+<meta name="description" content="IPSS Group research lab website.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">IPSS Group<span class="tag"><!-- EDIT: your institution -->Department · University Name</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="group.html">Group</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="join.html">Join us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><!-- EDIT: one-line field description -->Research Group</span>
+    <h1><!-- EDIT: your group's mission statement -->We study [your research area] to build [the outcome you're working toward].</h1>
+    <p class="lede"><!-- EDIT: 2–3 sentence intro -->IPSS Group is a research lab based at [Institution]. We work at the intersection of [topic A] and [topic B], with a focus on [what makes your approach distinct].</p>
+    <div style="margin-top: 32px; display:flex; gap:14px; flex-wrap:wrap;">
+      <a class="btn" href="research.html">See our research</a>
+      <a class="btn btn-ghost" href="join.html">Join the group</a>
+    </div>
+
+    <div class="hero-stats">
+      <div><div class="stat-num">12</div><div class="stat-label"><!-- EDIT -->Members</div></div>
+      <div><div class="stat-num">24</div><div class="stat-label"><!-- EDIT -->Publications</div></div>
+      <div><div class="stat-num">5</div><div class="stat-label"><!-- EDIT -->Active projects</div></div>
+      <div><div class="stat-num">2019</div><div class="stat-label"><!-- EDIT -->Founded</div></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What we work on</span>
+      <h2>Research themes</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="idx">01</span>
+        <h3><!-- EDIT -->Theme one</h3>
+        <p><!-- EDIT -->Short description of this research theme and why it matters.</p>
+        <a href="research.html">Learn more →</a>
+      </div>
+      <div class="card">
+        <span class="idx">02</span>
+        <h3><!-- EDIT -->Theme two</h3>
+        <p><!-- EDIT -->Short description of this research theme and why it matters.</p>
+        <a href="research.html">Learn more →</a>
+      </div>
+      <div class="card">
+        <span class="idx">03</span>
+        <h3><!-- EDIT -->Theme three</h3>
+        <p><!-- EDIT -->Short description of this research theme and why it matters.</p>
+        <a href="research.html">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Latest</span>
+      <h2>Recent publications</h2>
+    </div>
+    <div class="pub">
+      <div class="year">2026</div>
+      <div>
+        <h3><!-- EDIT -->Title of your most recent paper</h3>
+        <p class="authors"><!-- EDIT -->A. Author, B. Author, C. Author</p>
+        <p class="venue"><!-- EDIT -->Journal / Conference Name</p>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="year">2025</div>
+      <div>
+        <h3><!-- EDIT -->Title of another paper</h3>
+        <p class="authors"><!-- EDIT -->A. Author, B. Author</p>
+        <p class="venue"><!-- EDIT -->Journal / Conference Name</p>
+      </div>
+    </div>
+    <div style="margin-top: 20px;"><a href="publications.html">View all publications →</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="year"></span> IPSS Group. <!-- EDIT: institution --> Department, University Name.</div>
+    <div><a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
