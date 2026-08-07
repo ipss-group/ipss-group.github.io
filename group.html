@@ -7,13 +7,19 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <nav class="site-nav">
   <div class="wrap">
     <a class="brand" href="index.html">IPSS Group<span class="tag">Electrical Engineering · Tampere University</span></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="group.html" aria-current="page">Group</a></li>
+      <li class="dropdown"><a href="group.html" aria-current="page">Group</a>
+        <ul class="dropdown-menu">
+          <li><a href="group.html#professor">Professor</a></li>
+          <li><a href="group.html#phd">PhD Students</a></li>
+          <li><a href="group.html#ms">MS Students</a></li>
+          <li><a href="group.html#alumni">Former Members</a></li>
+        </ul>
+      </li>
       <li><a href="research.html">Research</a></li>
       <li><a href="publications.html">Publications</a></li>
       <li><a href="join.html">Join us</a></li>
@@ -21,7 +27,6 @@
     </ul>
   </div>
 </nav>
-
 <header class="page-header">
   <div class="wrap">
     <span class="eyebrow">Who we are</span>
@@ -29,8 +34,18 @@
     <p><!-- EDIT -->Meet the people behind IPSS Group — faculty, students, and collaborators.</p>
   </div>
 </header>
-
-<section>
+<section style="padding-bottom: 0;">
+  <div class="wrap">
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="professor">Professor</button>
+      <button class="filter-btn" data-filter="phd">PhD Students</button>
+      <button class="filter-btn" data-filter="ms">MS Students</button>
+      <button class="filter-btn" data-filter="alumni">Former Members</button>
+    </div>
+  </div>
+</section>
+<section id="professor" class="group-section" data-group="professor">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Faculty</span>
@@ -47,14 +62,12 @@
     </div>
   </div>
 </section>
-
-<section class="section-alt">
+<section id="phd" class="group-section section-alt" data-group="phd">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Team</span>
-      <h2>Current members</h2>
+      <h2>PhD Students</h2>
     </div>
-
     <div class="person">
       <div class="avatar">CD</div>
       <div>
@@ -71,14 +84,8 @@
         <p><!-- EDIT -->One-line research interest.</p>
       </div>
     </div>
-    <div class="person">
-      <div class="avatar">GH</div>
-      <div>
-        <h3><!-- EDIT -->Member Name</h3>
-        <div class="role">Master's Student</div>
-        <p><!-- EDIT -->One-line research interest.</p>
-      </div>
-    </div>
+    <!-- No dedicated "Postdoc" filter tab — postdocs grouped here with PhD students for now.
+         Add a 5th filter-btn (data-filter="postdoc") above if you'd like them split out. -->
     <div class="person">
       <div class="avatar">IJ</div>
       <div>
@@ -89,8 +96,23 @@
     </div>
   </div>
 </section>
-
-<section>
+<section id="ms" class="group-section" data-group="ms">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Team</span>
+      <h2>MS Students</h2>
+    </div>
+    <div class="person">
+      <div class="avatar">GH</div>
+      <div>
+        <h3><!-- EDIT -->Member Name</h3>
+        <div class="role">Master's Student</div>
+        <p><!-- EDIT -->One-line research interest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="alumni" class="group-section section-alt" data-group="alumni">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Alumni</span>
@@ -100,7 +122,6 @@
     <strong>Name</strong> (MSc, 2023) — now at [Company/Institution]</p>
   </div>
 </section>
-
 <footer>
   <div class="wrap">
     <div>© <span id="year"></span> IPSS Group.</div>
@@ -108,5 +129,33 @@
   </div>
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+(function () {
+  var sections = document.querySelectorAll('.group-section');
+  var buttons = document.querySelectorAll('.filter-btn');
+  var validFilters = ['professor', 'phd', 'ms', 'alumni'];
+
+  function applyFilter(name) {
+    sections.forEach(function (sec) {
+      sec.style.display = (name === 'all' || sec.dataset.group === name) ? '' : 'none';
+    });
+    buttons.forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.filter === name);
+    });
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var name = btn.dataset.filter;
+      applyFilter(name);
+      var newUrl = name === 'all' ? 'group.html' : ('group.html#' + name);
+      history.replaceState(null, '', newUrl);
+    });
+  });
+
+  var hash = window.location.hash.replace('#', '');
+  applyFilter(validFilters.indexOf(hash) !== -1 ? hash : 'all');
+})();
+</script>
 </body>
 </html>
